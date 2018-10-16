@@ -42,10 +42,13 @@
             $consulta='UPDATE pokemon SET nombre="' .$nombre . '", ataque="' .$ataque. '", tipo="' .$tipo. '" WHERE id=' .$idPokemon;
             $resultado=mysqli_query($conexion,$consulta);
         }
-        header("Location: pokedex.php");
-            exit;
             mysqli_close($conexion);
+            header("Location: pokedex.php");
+            exit;
+            
             }
+            header("Location: pokedex.php");
+            exit;
         }
     } else{
         header("Location: pokedex.php");
@@ -59,20 +62,44 @@
 </head>
 <body>
 <div class="container text-center">
-    <div style = "background-color:rgba(133,133,133,0.4); display: inline-block; padding:1em;">
+    <div style = "background-color:rgba(133,133,133,0.4); display: inline-block; padding:1em;" data-aos="fadeIn" data-aos-delay="200">
     <img class="align-center" src="<?php echo $pokemon['imagen'] ?>" alt="imagen">
-		<form name="form" action="" method="POST" enctype="multipart/form-data">
-			<label>Id</label><br/>
-			<input type="text" style="margin-bottom:1em;" value="<?php echo $pokemon['id'] ?>" disabled><br/>
-			<label>Imagen</label><br/>
-			<input type="file" style="margin-bottom:1em;" name="imagen"><br/>
-			<label>Nombre</label><br/>
-			<input type="text" style="margin-bottom:1em;" name="nombre" value="<?php echo $pokemon['nombre'] ?>"><br/>
-			<label>Ataque</label><br/>
-			<input type="text" style="margin-bottom:1em;" name="ataque" value="<?php echo $pokemon['ataque'] ?>"><br/>
-			<label>Tipo</label><br/>
-			<input type="text" style="margin-bottom:1em;" name="tipo" value="<?php echo $pokemon['tipo'] ?>"><br/>
-			<input type="submit" style="margin-top:1em;" name="modificar" value="Modificar">
+        <form name="form" action="" method="POST" enctype="multipart/form-data">
+
+<label>id</label>
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" class="form-control text-center" name="id" placeholder="id" aria-label="id" value="<?php echo $pokemon['id'] ?>" aria-describedby="basic-addon1" required disabled>
+</div>
+
+<label>imagen</label>
+        <div class="custom-file input-group mb-3">
+    <input type="file" class="custom-file-input" id="imagen" name="imagen" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">imagen</label>
+  </div>
+
+<label>nombre</label>
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" class="form-control text-center" name="nombre" placeholder="nombre" aria-label="nombre" value="<?php echo $pokemon['nombre'] ?>"aria-describedby="basic-addon1" required>
+</div>
+
+<label>ataque</label>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" class="form-control text-center" name="ataque" placeholder="ataque" aria-label="ataque" value="<?php echo $pokemon['ataque'] ?>" aria-describedby="basic-addon1" required>
+</div>
+
+<label>tipo</label>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+  </div>
+  <input type="text" class="form-control text-center" name="tipo" placeholder="tipo" value="<?php echo $pokemon['tipo'] ?>" aria-label="tipo" aria-describedby="basic-addon1" required>
+</div>
+			<input type="submit" class="btn btn-success" name="modificar" value="Modificar">
         </form>
     </div>
 </div>

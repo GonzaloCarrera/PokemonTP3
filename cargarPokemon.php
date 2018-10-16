@@ -37,7 +37,7 @@
 </head>
 <body>
 <div class="container text-center">
-    <div style = "background-color:rgba(133,133,133,0.4); display: inline-block; padding:1em;">
+    <div style = "background-color:rgba(133,133,133,0.4); display: inline-block; padding:1em;" data-aos="fadeIn" data-aos-delay="200">
         <form name="form" action="" method="POST" enctype="multipart/form-data">
         
         <div class="input-group mb-3">
